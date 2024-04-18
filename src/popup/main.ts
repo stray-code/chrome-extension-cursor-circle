@@ -40,7 +40,9 @@ const App = () => {
             return;
           }
 
-          chrome.tabs.sendMessage(tab.id, { type: "RELOAD" });
+          await chrome.tabs.sendMessage(tab.id, { type: "RELOAD" });
+
+          window.close();
         },
       }),
       "表示する",
