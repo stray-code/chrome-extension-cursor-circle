@@ -3,8 +3,8 @@ import { crx, defineManifest } from "@crxjs/vite-plugin";
 
 const manifest = defineManifest({
   manifest_version: 3,
-  name: "マウスカーソルに円状のリングを表示",
-  description: "マウスカーソルに円状のリングを表示します。",
+  name: "マウスカーソルに円を表示",
+  description: "マウスカーソルに円を表示します。",
   version: "1.0.0",
   icons: {
     16: "img/icon16.png",
