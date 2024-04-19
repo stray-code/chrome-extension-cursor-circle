@@ -22,7 +22,7 @@ const showCircle = () => {
     circleElement.style.top = `${e.clientY}px`;
   });
 
-  document.addEventListener("mouseout", () => {
+  document.addEventListener("mouseleave", () => {
     circleElement.style.left = "-9999px";
     circleElement.style.top = "-9999px";
   });
