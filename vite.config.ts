@@ -5,7 +5,7 @@ const manifest = defineManifest({
   manifest_version: 3,
   name: "マウスカーソルに円を表示",
   description: "マウスカーソルに円を表示します。",
-  version: "1.0.2",
+  version: "1.0.3",
   icons: {
     16: "img/icon16.png",
     48: "img/icon48.png",
