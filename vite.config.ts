@@ -21,6 +21,10 @@ const manifest = defineManifest({
     default_popup: "src/popup/index.html",
     default_icon: "img/icon16.png",
   },
+  background: {
+    service_worker: "src/background.ts",
+    type: "module",
+  },
   permissions: ["storage"],
 });
 
