@@ -1,17 +1,23 @@
 import van from "vanjs-core";
 
+import { getLocalStorage, setLocalStorage } from "../utils";
+
 const App = () => {
   const { div, input, label } = van.tags;
 
   const enabled = van.state(true);
 
-  chrome.storage.local.get(["SETTINGS"], (value) => {
-    if (!value?.SETTINGS) {
+  const init = async () => {
+    const settings = await getLocalStorage("settings");
+
+    if (!settings) {
       return;
     }
 
-    enabled.val = value.SETTINGS.enabled;
-  });
+    enabled.val = settings.enabled;
+  };
+
+  init();
 
   return div(
     {
@@ -25,11 +31,7 @@ const App = () => {
         onchange: async (e) => {
           enabled.val = e.target.checked;
 
-          chrome.storage.local.set({
-            SETTINGS: {
-              enabled: enabled.val,
-            },
-          });
+          await setLocalStorage("settings", { enabled: enabled.val });
 
           const [tab] = await chrome.tabs.query({
             active: true,

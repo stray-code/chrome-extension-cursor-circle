@@ -1,3 +1,5 @@
+import { getLocalStorage } from "../utils";
+
 import "./style.css";
 
 const showCircle = () => {
@@ -20,14 +22,14 @@ const showCircle = () => {
   });
 };
 
-const init = () => {
-  chrome.storage.local.get(["SETTINGS"], (value) => {
-    if (!value?.SETTINGS?.enabled) {
-      return;
-    }
+const init = async () => {
+  const settings = await getLocalStorage("settings");
 
-    showCircle();
-  });
+  if (!settings) {
+    return;
+  }
+
+  showCircle();
 };
 
 init();
