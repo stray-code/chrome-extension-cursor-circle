@@ -33,9 +33,3 @@ const init = async () => {
 };
 
 init();
-
-chrome.runtime.onMessage.addListener((message) => {
-  if (message.type === "RELOAD") {
-    window.location.reload();
-  }
-});

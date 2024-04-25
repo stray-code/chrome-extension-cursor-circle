@@ -42,7 +42,7 @@ const App = () => {
             return;
           }
 
-          await chrome.tabs.sendMessage(tab.id, { type: "RELOAD" });
+          await chrome.tabs.reload(tab.id);
 
           window.close();
         },
