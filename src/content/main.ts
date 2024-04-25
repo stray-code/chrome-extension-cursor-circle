@@ -25,11 +25,9 @@ const showCircle = () => {
 const init = async () => {
   const settings = await getLocalStorage("settings");
 
-  if (!settings) {
-    return;
+  if (settings?.enabled) {
+    showCircle();
   }
-
-  showCircle();
 };
 
 init();
