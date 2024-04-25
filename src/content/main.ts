@@ -1,30 +1,22 @@
-const showCircle = () => {
-  const styles: Partial<CSSStyleDeclaration> = {
-    position: "fixed",
-    left: "-9999px",
-    top: "-9999px",
-    width: "200px",
-    height: "200px",
-    borderRadius: "200px",
-    backgroundColor: "rgba(255,255,0,0.4)",
-    translate: "-50% -50%",
-    pointerEvents: "none",
-    zIndex: "calc(infinity)",
-  };
+import "./style.css";
 
+const showCircle = () => {
   const circleElement = document.createElement("div");
+  circleElement.classList.add("chrome-extension-cursor-circle");
+
   document.body.appendChild(circleElement);
 
-  Object.assign(circleElement.style, styles);
+  circleElement.style.setProperty("left", "-9999px", "important");
+  circleElement.style.setProperty("top", "-9999px", "important");
 
   document.addEventListener("mousemove", (e) => {
-    circleElement.style.left = `${e.clientX}px`;
-    circleElement.style.top = `${e.clientY}px`;
+    circleElement.style.setProperty("left", `${e.clientX}px`, "important");
+    circleElement.style.setProperty("top", `${e.clientY}px`, "important");
   });
 
   document.addEventListener("mouseleave", () => {
-    circleElement.style.left = "-9999px";
-    circleElement.style.top = "-9999px";
+    circleElement.style.setProperty("left", "-9999px", "important");
+    circleElement.style.setProperty("top", "-9999px", "important");
   });
 };
 

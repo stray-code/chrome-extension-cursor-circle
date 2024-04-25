@@ -1,0 +1,11 @@
+.chrome-extension-cursor-circle {
+  all: initial !important;
+  position: fixed !important;
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 200px !important;
+  background-color: rgba(255, 255, 0, 0.4) !important;
+  translate: -50% -50% !important;
+  pointer-events: none !important;
+  z-index: calc(infinity) !important;
+}
