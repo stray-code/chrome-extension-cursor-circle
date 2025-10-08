@@ -1,6 +1,6 @@
-import { LocalStorageItems } from "../types";
+import type { LocalStorageItems } from '../types';
 
-type Return<T> = T extends "settings" ? LocalStorageItems["settings"] : never;
+type Return<T> = T extends 'settings' ? LocalStorageItems['settings'] : never;
 
 export const getLocalStorage = async <T extends keyof LocalStorageItems>(
   key: T,

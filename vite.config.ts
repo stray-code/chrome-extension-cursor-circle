@@ -1,30 +1,30 @@
-import { defineConfig } from "vite";
-import { crx, defineManifest } from "@crxjs/vite-plugin";
+import { crx, defineManifest } from '@crxjs/vite-plugin';
+import { defineConfig } from 'vite';
 
 const manifest = defineManifest({
   manifest_version: 3,
-  name: "マウスカーソルに円を表示",
-  description: "マウスカーソルに円を表示します。",
-  version: "1.0.6",
+  name: 'マウスカーソルに円を表示',
+  description: 'マウスカーソルに円を表示します。',
+  version: '1.0.6',
   icons: {
-    16: "img/icon16.png",
-    48: "img/icon48.png",
-    128: "img/icon128.png",
+    16: 'img/icon16.png',
+    48: 'img/icon48.png',
+    128: 'img/icon128.png',
   },
   content_scripts: [
     {
-      js: ["src/content/main.ts"],
-      matches: ["http://*/*", "https://*/*"],
+      js: ['src/content/main.ts'],
+      matches: ['http://*/*', 'https://*/*'],
     },
   ],
   action: {
-    default_popup: "src/popup/index.html",
+    default_popup: 'src/popup/index.html',
   },
   background: {
-    service_worker: "src/background.ts",
-    type: "module",
+    service_worker: 'src/background.ts',
+    type: 'module',
   },
-  permissions: ["storage"],
+  permissions: ['storage'],
 });
 
 export default defineConfig({

@@ -1,6 +1,6 @@
-import van from "vanjs-core";
+import van from 'vanjs-core';
 
-import { getLocalStorage, setLocalStorage } from "../utils";
+import { getLocalStorage, setLocalStorage } from '../utils';
 
 const App = () => {
   const { div, input, label } = van.tags;
@@ -8,7 +8,7 @@ const App = () => {
   const enabled = van.state(true);
 
   const init = async () => {
-    const settings = await getLocalStorage("settings");
+    const settings = await getLocalStorage('settings');
 
     if (!settings) {
       return;
@@ -21,17 +21,17 @@ const App = () => {
 
   return div(
     {
-      style: "white-space: nowrap",
+      style: 'white-space: nowrap',
     },
     label(
       input({
-        id: "enabled",
-        type: "checkbox",
+        id: 'enabled',
+        type: 'checkbox',
         checked: enabled,
         onchange: async (e) => {
           enabled.val = e.target.checked;
 
-          await setLocalStorage("settings", { enabled: enabled.val });
+          await setLocalStorage('settings', { enabled: enabled.val });
 
           const [tab] = await chrome.tabs.query({
             active: true,
@@ -47,9 +47,9 @@ const App = () => {
           window.close();
         },
       }),
-      "カーソルに円を表示する",
+      'カーソルに円を表示する',
     ),
   );
 };
 
-van.add(document.getElementById("app")!, App());
+van.add(document.getElementById('app')!, App());

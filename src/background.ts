@@ -1,5 +1,5 @@
-import { setLocalStorage } from "./utils";
+import { setLocalStorage } from './utils';
 
 chrome.runtime.onInstalled.addListener(async () => {
-  await setLocalStorage("settings", { enabled: true });
+  await setLocalStorage('settings', { enabled: true });
 });
