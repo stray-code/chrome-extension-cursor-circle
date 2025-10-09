@@ -52,4 +52,8 @@ const App = () => {
   );
 };
 
-van.add(document.getElementById('app')!, App());
+const app = document.getElementById('app');
+
+if (app) {
+  van.add(app, App());
+}
